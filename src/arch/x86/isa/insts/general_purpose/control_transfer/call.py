@@ -41,6 +41,7 @@ def macroop CALL_NEAR_I
     # Make the default data size of calls 64 bits in 64 bit mode
     .adjust_env oszIn64Override
     .function_call
+    .control_direct
 
     limm t1, imm
     rdip t7
@@ -55,6 +56,7 @@ def macroop CALL_NEAR_R
     # Make the default data size of calls 64 bits in 64 bit mode
     .adjust_env oszIn64Override
     .function_call
+    .control_indirect
 
     rdip t1
     # Check target of call
@@ -68,6 +70,7 @@ def macroop CALL_NEAR_M
     # Make the default data size of calls 64 bits in 64 bit mode
     .adjust_env oszIn64Override
     .function_call
+    .control_indirect
 
     rdip t7
     ld t1, seg, sib, disp
@@ -82,6 +85,7 @@ def macroop CALL_NEAR_P
     # Make the default data size of calls 64 bits in 64 bit mode
     .adjust_env oszIn64Override
     .function_call
+    .control_indirect
 
     rdip t7
     ld t1, seg, riprel, disp
